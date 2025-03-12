@@ -8,16 +8,11 @@ export const SearchPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { q = "" } = queryString.parse(location.search);
-
   const heros = getHeroByName(q)
-
-
-  const { searchText, onInputChange } = useForm({
-    searchText: q
-  })
-
-
-  const onSerachSubmmit = (event) => {
+  const { searchText, onInputChange } = useForm({ searchText: q })
+  
+  
+  const onSearchSubmmit = (event) => {
     event.preventDefault();
     if (searchText.length <= 1) {
       return;
@@ -32,7 +27,7 @@ export const SearchPage = () => {
       <div className="row">
         <div className="col-5">
           <h4>Searching</h4>
-          <form onSubmit={onSerachSubmmit}  >
+          <form onSubmit={onSearchSubmmit}  >
             <input type="text"
               className="form-control" name="searchText"
               autoComplete="off" placeholder="Search hero"
@@ -47,8 +42,6 @@ export const SearchPage = () => {
           </div> : (heros.length === 0) && <div className="alert alert-danger" role="alert">
             there is not hero <b>{q}</b>
           </div>}
-
-
           {heros.map((res) => (<HeroCard key={res.id} {...res} />))}
         </div>
 
