@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { DcPage, HeroPage, MarvelPage, SearchPage } from "../../heros";
 import { Navbar } from "../../shared";
 

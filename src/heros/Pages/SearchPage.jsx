@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import HeroCard from "../components/HeroCard";
 import { getHeroByName } from "../helpers/getHeroByName";
@@ -10,10 +10,11 @@ export const SearchPage = () => {
   const { q = "" } = queryString.parse(location.search);
   const heros = getHeroByName(q)
   const { searchText, onInputChange } = useForm({ searchText: q })
-  
-  
+
+
   const onSearchSubmmit = (event) => {
     event.preventDefault();
+
     if (searchText.length <= 1) {
       return;
     }
@@ -27,7 +28,7 @@ export const SearchPage = () => {
       <div className="row">
         <div className="col-5">
           <h4>Searching</h4>
-          <form onSubmit={onSearchSubmmit}  >
+          <form onSubmit={onSearchSubmmit} aria-label="form" >
             <input type="text"
               className="form-control" name="searchText"
               autoComplete="off" placeholder="Search hero"

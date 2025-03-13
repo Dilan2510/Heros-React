@@ -6,7 +6,6 @@ export const authreducer = (state = {}, action) => {
         ...state,
         logged: true,
         user: action.payload,
-    
       };
     case types.logout:
       return {

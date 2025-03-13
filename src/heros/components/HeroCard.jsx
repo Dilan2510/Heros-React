@@ -1,4 +1,4 @@
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
 /* eslint-disable react/prop-types */
 const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance, characters }) => {
